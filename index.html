@@ -3,51 +3,300 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assignment no. 2</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Interactive Page by Wajid Ali</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f39c12, #8e44ad);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 5px #000;
+        }
+
+        label {
+            display: block;
+            margin: 20px 0 10px;
+            font-size: 1.2rem;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 90%;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            outline: none;
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #e91e63;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #c2185b;
+            transform: scale(1.1);
+        }
+
+        .instructions-section {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        h2 {
+            color: #0300ab;
+            margin-bottom: 10px;
+        }
+
+        ol {
+            margin-left: 20px;
+            color: #fff;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            animation: popIn 0.5s ease-out forwards;
+        }
+        .next-Page {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+}
+        .modal-content h2 {
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .close-button {
+            background: #e91e63;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .close-button:hover {
+            background: #c2185b;
+        }
+
+        /* Keyframes */
+        @keyframes popIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Confetti Styles */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffeb3b;
+            opacity: 0.8;
+            animation: confettiFall 3s linear infinite;
+        }
+
+        @keyframes confettiFall {
+            0% {
+                transform: translateY(-100px) rotate(0);
+            }
+            100% {
+                transform: translateY(500px) rotate(360deg);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            button {
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            input[type="text"] {
+                font-size: 1rem;
+                padding: 8px;
+            }
+        }
+        /* Animation for the greeting message */
+.animated-text {
+    display: inline-block;
+    font-size: 2rem;
+    animation: slideIn 1s ease-out forwards;
+    color: #ff6347; /* Tomato color for a warm, welcoming feel */
+}
+
+.welcome-message {
+    font-size: 1.5rem;
+    animation: fadeIn 1.5s ease-out forwards;
+    color: #4CAF50; /* Green color for positivity */
+}
+
+/* Keyframes for the animations */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+    </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>Welcome to My Second Assignment</h1>
+            <h1>Welcome, Friends!</h1>
         </header>
-
         <main>
-            <section class="greeting-section">
-                <h2 id="greeting"></h2>
+            <section>
+                
                 <label for="name">Enter your name:</label>
-                <input type="text" id="name" placeholder="Your name">
-                <button class="greeting-button" onclick="displayFormalGreeting()">Greet me</button>
-
+                <input type="text" id="name" placeholder="Type your name here" required>
+                <button onclick="displayGreeting()">Greet Me!</button>
+            
             </section>
-
-            <section class="about-section">
-                <h2>About This Page</h2>
-                <p>This page is a simple HTML form that asks for the user's name and greets them when they click the "Greet me" button. It is part of an assignment to practice basic HTML, CSS, and JavaScript skills.</p>
-            </section>
-
             <section class="instructions-section">
-                <h2>Instructions</h2>
+                <h2>How to Enjoy</h2>
                 <ol>
-                    <li>Enter your name in the text box provided.</li>
-                    <li>Click the "Greet me" button to see a personalized greeting.</li>
-                    <li>Enjoy the simplicity of this web page!</li>
+                    <li>Enter your name in the box.</li>
+                    <li>Click the "Greet Me" button.</li>
+                    <li>Watch the confetti and enjoy!</li>
                 </ol>
             </section>
-
-            <section class="features-section">
-                <h2>Features</h2>
-                <ul>
-                    <li>Responsive design</li>
-                    <li>Interactive greeting button</li>
-                    <li>Simple and clean layout</li>
-                </ul>
-            </section>
-
         </main>
-
     </div>
 
-    <script src="script.js"></script>
+    <!-- Modal -->
+    <div id="greetingModal" class="modal">
+        <div class="modal-content">
+            <h2 id="greetingMessage"></h2>
+            <button class="close-button" onclick="closeModal()">Close</button>
+            <button class="next-Page" onclick="window.location.href='fun fact_page.html'">Next Page</button>
+
+        </div>
+    </div>
+
+    <script>
+        function displayGreeting() {
+            const name = document.getElementById('name').value.trim();
+            const modal = document.getElementById('greetingModal');
+            const greetingMessage = document.getElementById('greetingMessage');
+
+            if (name) {
+        // Time-based personalization
+        const hours = new Date().getHours();
+        let timeOfDay = 'Good day';
+
+        if (hours < 12) {
+            timeOfDay = 'Good morning';
+        } else if (hours < 18) {
+            timeOfDay = 'Good afternoon';
+        } else {
+            timeOfDay = 'Good evening';
+        }
+
+        // Add emojis and personalized greeting
+        greetingMessage.innerHTML = `
+            <span class="animated-text">${timeOfDay}, ${name}! 🎉</span><br>
+            <span class="welcome-message">Welcome to my page! 🌟</span>
+        `;
+        
+        modal.style.display = 'flex';
+        createConfetti();
+    }   else {
+                alert('Please enter your name!');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('greetingModal').style.display = 'none';
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.background = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(confetti);
+
+                setTimeout(() => confetti.remove(), 3000);
+            }
+        }
+    </script>
 </body>
 </html>

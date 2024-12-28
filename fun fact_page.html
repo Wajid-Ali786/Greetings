@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate Fun Webpage</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- External CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>🎉 Welcome to the Ultimate Fun Page! 🎉</h1>
+        <p>Explore exciting features, games, and surprises below!</p>
+    </header>
+
+    <main>
+        <!-- Balloon Popping Game -->
+        <section class="balloon-game">
+            <h2><i class="fas fa-birthday-cake"></i> Pop the Balloons! <i class="fas fa-birthday-cake"></i></h2>
+            <p>Click the balloons to pop them and collect points!</p>
+            <div id="balloonContainer"></div>
+            <div class="score">
+                <span>Score: </span><span id="score">0</span>
+            </div>
+        </section>
+
+        <!-- Fun Facts Section -->
+        <section class="fun-facts">
+            <h2><i class="fas fa-lightbulb"></i> Fun Facts <i class="fas fa-lightbulb"></i></h2>
+            <div id="carousel">
+                <p id="funFact">Did you know honey never spoils?</p>
+            </div>
+            <button onclick="nextFact()">Next Fun Fact <i class="fas fa-arrow-right"></i></button>
+        </section>
+
+        <!-- Wishing Area -->
+        <section class="wishing-area">
+            <h2><i class="fas fa-magic"></i> Make a Wish! <i class="fas fa-magic"></i></h2>
+            <textarea id="wishInput" placeholder="Type your wish here..." rows="3" cols="30"></textarea><br>
+            <button onclick="releaseWish()">Make Wish <i class="fas fa-paper-plane"></i></button>
+            <div id="wishDisplay"></div>
+        </section>
+
+        <!-- Quotes Carousel -->
+        <section class="quotes-section">
+            <h2><i class="fas fa-quote-left"></i> Daily Quotes <i class="fas fa-quote-right"></i></h2>
+            <div id="quotesCarousel">
+                <p id="quote">"The best way to predict the future is to create it." – Abraham Lincoln</p>
+            </div>
+            <button onclick="nextQuote()">Next Quote <i class="fas fa-arrow-circle-right"></i></button>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <a href="index.html" class="footer-link left-link">
+                <i class="fas fa-arrow-left"></i>  Back Page
+            </a>
+            <a href="unforgettable.html" class="footer-link right-link">
+                 Magic Page <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+        <p>&copy; 2024 Wajid Ali creater. Made with <i class="fas fa-heart"></i>.</p>
+    </footer>
+    
+    
+    
+    
+
+    <!-- External JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html>

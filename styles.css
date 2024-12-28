@@ -1,0 +1,318 @@
+/* General Styling */
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #f3e7e9, #e3eeff);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+header {
+    padding: 20px;
+    background: radial-gradient(circle, #ff6b6b, #feca57);
+    color: white;
+    text-shadow: 2px 2px #2c3e50;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: headerGlow 3s infinite alternate;
+}
+
+@keyframes headerGlow {
+    0% { box-shadow: 0 0 20px #ff9ff3; }
+    50% { box-shadow: 0 0 40px #48dbfb; }
+    100% { box-shadow: 0 0 60px #feca57; }
+}
+
+h1 {
+    margin: 0;
+    font-size: 3.5rem;
+    animation: rainbowText 3s infinite alternate;
+}
+
+@keyframes rainbowText {
+    0% { color: #ff6b6b; }
+    25% { color: #feca57; }
+    50% { color: #1dd1a1; }
+    75% { color: #5f27cd; }
+    100% { color: #ff9ff3; }
+}
+
+section {
+    padding: 20px;
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background: white;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+section:hover {
+    transform: scale(1.02);
+    background: linear-gradient(135deg, #f5f5f5, #eaeaea);
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #6c5ce7;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #341f97;
+    transform: scale(1.05);
+}
+
+/* Balloon Game Styling */
+.balloon-game {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    width: 50px;
+    height: 70px;
+    border-radius: 50%;
+    animation: float 5s infinite ease-in-out;
+    cursor: pointer;
+}
+
+.balloon:hover {
+    transform: scale(1.2);
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-500px); }
+}
+
+.score {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Fun Facts Section */
+#carousel {
+    margin: 20px auto;
+    padding: 15px;
+    border: 3px dashed #48dbfb;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #feca57, #48dbfb);
+    font-size: 1.5rem;
+    animation: fadeIn 2s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Wishing Area */
+.wishing-area {
+    background: linear-gradient(135deg, #ff9ff3, #48dbfb);
+    color: white;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+textarea {
+    border: 2px solid #ff6b6b;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 1rem;
+    width: 80%;
+    margin-bottom: 10px;
+    outline: none;
+}
+.wishing-area:hover {
+ background: linear-gradient(135deg,  #48dbfb, #ff9ff3);
+    transform: scale(1.05); /* Slightly enlarge the wishing area on hover */
+}
+textarea:focus {
+    border-color: #1dd1a1;
+    box-shadow: 0 0 10px #1dd1a1;
+}
+textarea:hover {
+    border-color: #ff9ff3; /* Change border color on hover */
+}
+#wishDisplay {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.wish {
+    background: #feca57;
+    color: white;
+    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 5px;
+    animation: bounce 2s infinite alternate;
+}
+.wish:hover {
+    background: #ff6b6b; /* Change background color on hover */
+    transform: scale(1.1); /* Slightly enlarge the wish on hover */
+}
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Quotes Section */
+#quotesCarousel {
+    background: #1dd1a1;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 1.2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+/* General Footer Styles */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    position: relative;
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    display: flex;
+    flex-direction: column; /* Stacked on mobile */
+    align-items: center;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-link {
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 25px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    background-color: #444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0; /* Initially invisible */
+    animation: fadeIn 1s forwards, pulse 1s infinite alternate; /* Repeat pulse animation */
+    animation-delay: 0.2s; /* Delay for staggered effect */
+}
+
+/* Animation for fading in the links */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Initial position offscreen */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Final position */
+    }
+}
+
+/* Pulse animation for continuous effect */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        background-color: #444;
+    }
+    50% {
+        transform: scale(1.1); /* Slightly enlarge */
+        background-color: #ff6347; /* Change color at the peak of the pulse */
+    }
+    100% {
+        transform: scale(1);
+        background-color: #444;
+    }
+}
+
+.footer-link i {
+    margin-right: 10px; /* Space between icon and text */
+    font-size: 1.6em; /* Larger icon size */
+    transition: transform 0.3s ease;
+}
+
+/* Footer Text */
+footer p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+/* Mobile-First Layout */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* Links stack vertically on mobile */
+        text-align: center;
+    }
+
+    .footer-link {
+        font-size: 18px; /* Adjust font size for better readability on mobile */
+        padding: 12px 20px;
+    }
+
+    footer p {
+        font-size: 12px;
+    }
+}
+
+/* Tablets and Larger Screens */
+@media (min-width: 768px) {
+    .footer-container {
+        flex-direction: row; /* Links side by side on tablets and larger screens */
+        justify-content: space-between;
+    }
+
+    .footer-link {
+        margin-bottom: 0; /* Remove margin between links on larger screens */
+    }
+}
+
+/* Desktop Screens */
+@media (min-width: 1200px) {
+    .footer-link {
+        font-size: 20px; /* Larger font size for desktop */
+        padding: 15px 30px;
+    }
+
+    footer p {
+        font-size: 16px; /* Larger footer text for desktop */
+    }
+}
+
+
+button {
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px 0;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
